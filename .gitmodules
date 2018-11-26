@@ -1,0 +1,9 @@
+[submodule "Frontend"]
+	path = Frontend
+	url = git@github.com:spacepal/Spacepal-Frontend.git
+[submodule "Backend"]
+	path = Backend
+	url = git@github.com:spacepal/Spacepal-Backend.git
+[submodule "AI"]
+	path = AI
+	url = git@github.com:spacepal/Spacepal-AI.git
