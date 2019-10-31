@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  frontend:
+    build:
+      context: Frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend-rails
+      - backend-ai
+  backend-ai:
+    build:
+      context: AI
+    ports:
+      - "3131:3131"
+    environment:
+      - PORT=3131
+    networks:
+      - backend
+    restart: unless-stopped
+  backend-rails:
+    build:
+      context: Backend
+    ports:
+      - "3000:3000"
+    environment:
+     - SPACEPAL_CALLBACK_URL=http://backend-rails:3000
+     - SPACEPAL_AISERVICE_URL=http://backend-ai:3131
+     - SPACEPAL_FRONTEND_PUBLIC=http://localhost:8080
+     - SPACEPAL_REDIS_URL=redis://redis:6379
+    networks:
+      - backend
+    depends_on:
+      - redis
+    restart: unless-stopped
+  redis:
+    image: redis:5.0.6
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - backend
+networks:
+  backend:
+    driver: bridge
