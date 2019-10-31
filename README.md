@@ -19,7 +19,7 @@ Online version of Konquest game [in development]
 # How to play
 - Download:
 ```bash
-git clone --recurse-submodules -j8 https://github.com/spacepal/Spacepal.git
+git clone --recurse-submodules -j8 git@github.com:spacepal/Spacepal.git
 cd Spacepal
 ```
 - Up server:
