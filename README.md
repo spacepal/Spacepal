@@ -14,17 +14,16 @@ Online version of Konquest game [in development]
 * No need to sign up, only type in the name
 
 # Requirements
-**The latest versions of**
-- Node.js/npm (https://nodejs.org/en/download/current/)
-- Golang (https://golang.org/)
-- Ruby (https://www.ruby-lang.org/en/downloads/)
-- Bundler (https://bundler.io/)
-- Redis (https://redis.io/download)
-- Git client (https://git-scm.com/downloads)
+- docker-compose
 
-# How to build
-- Get sources `git clone https://github.com/spacepal/Spacepal.git`
-- Goto project directory `cd Spacepal`
-- Configure environment `./configure.sh`
-- Build `make`
-- See **__production__** folder
+# How to play
+- Download:
+```bash
+git clone --recurse-submodules -j8 https://github.com/spacepal/Spacepal.git
+cd Spacepal
+```
+- Up server:
+```bash
+docker compose up
+```
+- Enter http://localhost:8080 and enjoy game
